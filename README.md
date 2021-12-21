@@ -1,5 +1,11 @@
 # Shiny & Docker - Exemplo
 
+<div align="center">
+<img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png" width="200" style="margin: 10px;"/> <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/shiny.png" width="150" style="margin: 10px;"/>
+
+</div>
+<br/>
+
 Um exemplo simples de como utilizar o Shiny e Docker.
 
 ## Rodando a aplicação via Shiny
