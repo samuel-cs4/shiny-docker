@@ -1,18 +1,13 @@
 # Imagem base: Mínima versão do R
-FROM rhub/r-minimal
+FROM rocker/r-ubuntu:20.04
 
 LABEL maintainer="Samuel Souza"
 
 # Adicionando as dependências do R no Linux
-RUN apk add --no-cache --update-cache \
-  --repository http://nl.alpinelinux.org/alpine/v3.11/main \
-  autoconf=2.69-r2 \
-  automake=1.16.1-r0 && \
-  installr -d \
-  -t "bash libsodium-dev curl-dev linux-headers autoconf automake" \
-  -a libsodium \
-  # Bibliotecas do R
-  shiny shinydashboard waiter
+RUN apt-get update && apt-get upgrade -y && apt-get install -y libxml2-dev
+
+RUN R -e "install.packages(c('shiny', 'shinydashboard', 'waiter'), \
+  repos = 'https://cloud.r-project.org/')"
 
 # Seta as variáveis de Ambiente
 ENV PROJECT_NAME='Workshop - Docker 4intelligence'
